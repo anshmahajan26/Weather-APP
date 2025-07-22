@@ -1,0 +1,107 @@
+/* Base Reset and Layout */
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+#root {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* App Container */
+.app {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 100px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Moving Gradient Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 0, 0.3), rgba(255, 165, 0, 0.3), rgba(0, 128, 0, 0.3));
+  background-size: 400% 400%;
+  animation: gradientAnimation 20s ease infinite;
+  z-index: -2;
+}
+
+/* Transparent Cloud Texture Animation */
+body::after {
+  content: '';
+  background: url('https://www.transparenttextures.com/patterns/cloudy-day.png');
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 100%;
+  animation: cloudsMove 60s linear infinite;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Keyframes */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes cloudsMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Search Section */
+.search {
+  margin-top: 20px;
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+}
+
+.search button {
+  padding: 10px 16px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: #ffffff22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.search button:hover {
+  background-color: #ffffff44;
+}
+
+/* Weather Info Box */
+.weather {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  display: inline-block;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  margin-top: 20px;
+}
